@@ -6,25 +6,7 @@
 // Firefox --> mozGetUserMedia
 navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia);
-if (navigator.getUserMedia) {
-    navigator.getUserMedia(
-        // constraints
-        {
-            video: true,
-            audio: true
-        },
 
-        function(localMediaStream) {
-            var video = document.querySelector('video');
-            video.src = window.URL.createObjectURL(localMediaStream);
-
-        },
-
-        function(err) {
-            console.log("The following error occured: " + err);
-        });
-} else {
-    console.log("getUserMedia not supported");
 // Clean-up function:
 // collect garbage before unloading browser's window
 window.onbeforeunload = function(e){
